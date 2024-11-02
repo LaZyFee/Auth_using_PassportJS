@@ -1,0 +1,138 @@
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+/* Menu Styles */
+.menu {
+    background-color: black;
+    justify-content: center;
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    padding: 2%;
+    flex-wrap: wrap; /* Allows the menu to wrap on smaller screens */
+}
+
+.menu li a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: semibold;
+    font-size: 1.5rem;
+    transition: color 0.3s; /* Smooth transition for hover color */
+}
+
+.menu li a:hover {
+    color: red;
+}
+
+.menu li a.active {
+    color: orange;
+}
+
+/* Register Page Form Styles */
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 2rem;
+}
+
+h1 {
+    font-size: 2rem;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+/* Form Styles */
+form {
+    display: flex;
+    flex-direction: column;
+    width: 90%; /* Full width for mobile */
+    max-width: 400px; /* Max width for larger screens */
+    gap: 1rem;
+    padding: 1.5rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 0.3rem;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    padding: 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1rem;
+    outline: none;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
+}
+
+button[type="submit"] {
+    padding: 0.8rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    
+
+    .menu li a {
+        font-size: 1.2rem; /* Smaller font size for mobile */
+    }
+
+    h1 {
+        font-size: 1.5rem; /* Smaller heading for mobile */
+    }
+
+    form {
+        width: 95%; /* Slightly wider for mobile */
+    }
+
+    button[type="submit"] {
+        font-size: 0.9rem; /* Smaller button font size for mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .menu li a {
+        font-size: 0.8rem; /* Even smaller font size for very small screens */
+    }
+
+    h1 {
+        font-size: 1.2rem; /* Smaller heading for very small screens */
+    }
+
+    form {
+        padding: 1rem; /* Reduce padding for mobile */
+    }
+}
