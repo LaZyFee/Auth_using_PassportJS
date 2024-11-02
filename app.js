@@ -4,6 +4,7 @@ const session = require("express-session");
 const ejs = require("ejs");
 const MongoStore = require("connect-mongo");
 const passport = require("./config/passport");
+const passportGoogleAuth = require("./config/passportGoogleAuth");
 const flash = require("connect-flash");
 
 const { register } = require("./controller/userController");
@@ -53,7 +54,27 @@ app.post("/login", passport.authenticate("local", {
     failureFlash: true
 }));
 
-app.get("/profile", (req, res) => req.isAuthenticated() ? res.render("profile") : res.redirect("/login"));
+app.get("/profile", (req, res) => {
+    if (req.isAuthenticated()) {
+        res.render("profile", { username: req.user.name });
+    } else {
+        res.redirect("/login");
+    }
+});
+
+
+app.get('/auth/google', passport.authenticate('google', { scope: ['profile', 'email'] }));
+
+app.get('/auth/google/callback',
+    passport.authenticate('google', {
+        failureRedirect: '/login',
+        successRedirect: '/profile'
+    }),
+    function (req, res) {
+        // Successful authentication, redirect home.
+        res.redirect('/');
+    });
+
 
 app.get("/logout", (req, res) => {
     req.logout(() => {

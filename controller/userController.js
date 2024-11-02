@@ -7,7 +7,7 @@ exports.register = async (req, res) => {
         // Check if email already exists
         const emailExist = await UserModel.findOne({ email: req.body.email });
         if (emailExist) {
-            return res.status(200).send("Email already exists");
+            return res.status(409).send("Email already exists");
         }
 
         // Hash the password
